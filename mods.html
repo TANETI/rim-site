@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부품 목록 — 진조이니라!</title>
+<meta name="description" content="기준 세트의 모드 전체와 불러오는 순서.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<!--
+DIRECTION CONTRACT — rim.issssm.com
+
+THESIS: 이 팩은 고르는 카탈로그가 아니라 순서가 검증된 조립물 하나다. 세트를
+고르고 번호를 따라가면 끝난다. 기능을 자랑하는 히어로 배너와 카드 격자를 쓰지
+않는다 — 초보가 먼저 묻는 것은 "무엇이 들었나" 가 아니라 "뭐부터 하면 되나" 다.
+
+OWN-WORLD: 조립 설명서. 흰 종이, 검은 키라인, 진홍(#c8102e)이 이 팩의 정체이자
+유일한 강조색, 노랑·검정 사선 위험 띠가 경고를 진다. 여백의 큰 외곽선 숫자,
+1:1 부품 호출 상자 격자, IBM Plex Sans KR + Plex Mono, 숫자는 전부 tabular.
+
+STORY: 세트 상자가 부품 수와 난이도를 모서리에 찍고 나란히 놓인 것을 본다.
+자기 것이 어느 것인지 알아보고, 번호 매긴 단계를 따라 혼자 끝까지 깐다.
+세트로 정해지지 않는 것(성인 요소)은 상자 아래에서 따로 묻는다.
+
+FIRST VIEWPORT: 상단 3px 괘선 아래 워드마크. 그 아래 "뭐부터 하면 되는데?" 가
+화면 폭을 쓰는 질문으로 서고, 답이 곧바로 1단계 링크다. 그 아래 노랑·검정
+위험 띠가 DLC 4종·OneDrive 금지·성인 요소를 진다. 세트 상자는 그다음이다.
+
+FORM: 브릭 조립 설명서. 공명 순위 7위였던 배정안(약전 첨부문서)을 두 축에서
+이긴 도전자. seed 343098e7.
+
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
+<div class="sheet">
+  <header class="masthead pad">
+    <p class="wordmark">진조이니라<span class="bang">!</span></p>
+    <p class="meta">RimWorld 1.6 · 팩 2026.09.01</p>
+  </header>
+  <nav class="tabs pad" aria-label="주요">
+      <a href="index.html">시작</a>
+      <a href="install.html">조립 순서</a>
+      <a href="mods.html" aria-current="page">부품 목록</a>
+  </nav>
+  <main class="pad">
+    <h1 class="q">부품 목록</h1>
+    <p class="lede">기준 세트에 들어가는 <strong>127개</strong>다.
+    왼쪽 번호가 <strong>불러오는 순서</strong>이고, 이 순서는 고를 수 없다.
+    Revia 처럼 자기 선언대로 두면 로딩이 깨지는 검증된 예외가 여럿이라 그렇게 두었다.</p>
+
+    <p class="sectionhead">세트별 개수</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>세트</th><th>부품</th><th>자작</th><th>위생</th><th>상태</th></tr></thead>
+        <tbody>
+        <tr><td>기본 세트</td><td class="num">69</td><td class="num">6</td><td>none</td><td><strong>미검증</strong></td></tr>
+        <tr><td>입문 세트</td><td class="num">124</td><td class="num">17</td><td>none</td><td>검증됨</td></tr>
+        <tr><td>기준 세트</td><td class="num">127</td><td class="num">19</td><td>lite</td><td>검증됨</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="legend"><span><span class="swatch"></span>진홍 표시는 우리가 만든 것이다. 나머지는 워크샵에서 각자 받는다.</span></p>
+    <p class="stuck" style="margin:0.75rem 0 0"><b>성인 요소를 켜면</b>
+    이 목록에 <strong>진조이니라! - 정기 운용</strong> (순서 70) 가 더 들어간다. 그 자리에 끼어들 뿐 다른 모드의 순서는 바뀌지 않는다.
+    기본값은 끔이라 위 127개에는 없다.</p>
+
+    <div class="bin">
+      <h2>필수 기반 <span class="count">9개</span></h2>
+      <p class="gdesc">빼면 배열이 무너진다</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">1</span>
+          <span class="nm">Harmony<span class="id">brrainz.harmony</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">2</span>
+          <span class="nm">Core<span class="id">ludeon.rimworld</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">3</span>
+          <span class="nm">Royalty<span class="id">ludeon.rimworld.royalty</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">4</span>
+          <span class="nm">Ideology<span class="id">ludeon.rimworld.ideology</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">5</span>
+          <span class="nm">Biotech<span class="id">ludeon.rimworld.biotech</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">6</span>
+          <span class="nm">Odyssey<span class="id">ludeon.rimworld.odyssey</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">27</span>
+          <span class="nm">Humanoid Alien Races<span class="id">erdelf.humanoidalienraces</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">38</span>
+          <span class="nm">Vanilla Expanded Framework<span class="id">oskarpotocki.vanillafactionsexpanded.core</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">52</span>
+          <span class="nm">NewRatkinPlus<span class="id">solaris.ratkinracemod</span></span>
+        </div>
+      </div>
+      <h2>종족 <span class="count">14개</span></h2>
+      <p class="gdesc">울페인·밀리라·랫킨·민초 등</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">10</span>
+          <span class="nm">Silversol's maidnoid<span class="id">silversol.consti</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">11</span>
+          <span class="nm">Mechanoid Baby<span class="id">gg.mechbaby</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">12</span>
+          <span class="nm">Mechanoid Lovers<span class="id">gg.mechlovers</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">13</span>
+          <span class="nm">Maidnoid Codex<span class="id">gg.maidnoidcodex</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">50</span>
+          <span class="nm">Wolfein Race<span class="id">melondove.wolfeinrace</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">53</span>
+          <span class="nm">Mincho, The Mint Choco Slime ~ HAR ver.<span class="id">sutsutman.minchothemintchocoslimeharver</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">54</span>
+          <span class="nm">Gloomy Dragonian race<span class="id">rooandgloomy.dragonianracemod</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">55</span>
+          <span class="nm">Milira Race<span class="id">ancot.milirarace</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">57</span>
+          <span class="nm">Vanilla Races Expanded - Sanguophage<span class="id">vanillaracesexpanded.sanguophage</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">58</span>
+          <span class="nm">Addie's Sanguine Arsenal<span class="id">addie.addiessanguinearsenal</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">59</span>
+          <span class="nm">Sanguophage Faction<span class="id">ocarina.sanguophage.faction</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">60</span>
+          <span class="nm">Sanguophage Feed Relationship<span class="id">opponent019.sanguophagefeedrelationship</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">85</span>
+          <span class="nm">Mincho Facial Animation<span class="id">talos.mincho.fa</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">87</span>
+          <span class="nm">Wolfein Race Facial Animation<span class="id">melondove.wolfeinrace.fa</span></span>
+        </div>
+      </div>
+      <h2>외형·애니메이션 <span class="count">28개</span></h2>
+      <p class="gdesc">표정, 전투 동작, 손 표시</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">31</span>
+          <span class="nm">Interaction Bubbles<span class="id">jaxe.bubbles</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">42</span>
+          <span class="nm">Erin's Japanese Furniture<span class="id">erin.japanesefurniture</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">72</span>
+          <span class="nm">UNAGI_Hair1<span class="id">unagi.kawaii.hair1</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">73</span>
+          <span class="nm">UNAGI_Hair2<span class="id">unagi.short.hair2</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">74</span>
+          <span class="nm">UNAGI Vanilla Apparel うなぎのバニラ服<span class="id">unagi.apparel.b.zibunyou</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">75</span>
+          <span class="nm">Clean Textures<span class="id">ih.clean.textures</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">76</span>
+          <span class="nm">[CF] Better Looking Plants<span class="id">better.plants</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">77</span>
+          <span class="nm">[CF] Odyssey Upscaled 4x<span class="id">cf.odysseyupscalled</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">78</span>
+          <span class="nm">[S16] Vanilla Weapons HD<span class="id">s16.vwhd</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">79</span>
+          <span class="nm">[S16] Royalty Weapons HD<span class="id">s16.rwhd</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">80</span>
+          <span class="nm">Morphs Assorted Biotech Retex<span class="id">morphsassorted.biotechretex</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">81</span>
+          <span class="nm">Biotech Mechanoid Retexture<span class="id">el.biotechmechrt</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">82</span>
+          <span class="nm">Dubs Apparel Tweaks<span class="id">dubwise.dubsappareltweaks</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">83</span>
+          <span class="nm">[NL] Facial Animation - WIP<span class="id">nals.facialanimation</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">84</span>
+          <span class="nm">[NL] Facial Animation - Experimentals<span class="id">nals.facialanimationexperimentals</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">86</span>
+          <span class="nm">Gloomy Dragonian Facial Animation<span class="id">talos.dragonianfacialanimation</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">88</span>
+          <span class="nm">UNAGI Facial Animation<span class="id">unagi.facialanimation</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">89</span>
+          <span class="nm">UNAGI Facial Animation.biotech<span class="id">unagifacialanimation.biotech</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">90</span>
+          <span class="nm">UNAGI EYE Parts Retexture<span class="id">unagi.fa.addon.eyeparts</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">91</span>
+          <span class="nm">UNAGI Vanilla Hairs うなぎのバニラ髪<span class="id">unagi.hairs.b.zibunyou</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">106</span>
+          <span class="nm">Blood Animations<span class="id">fuu.bloodanimations</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">107</span>
+          <span class="nm">Show Me Your Hands<span class="id">mlie.showmeyourhands</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">108</span>
+          <span class="nm">Muzzle Flash<span class="id">issaczhuang.muzzleflash</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">109</span>
+          <span class="nm">Melee Animation<span class="id">co.uk.epicguru.meleeanimation</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">113</span>
+          <span class="nm">WeaponStats<span class="id">bodlosh.weaponstats</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">114</span>
+          <span class="nm">RPG Style Inventory Revamped<span class="id">sandy.rpgstyleinventory.avilmask.revamped</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">116</span>
+          <span class="nm">Character Editor<span class="id">void.charactereditor</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">117</span>
+          <span class="nm">Quality Colors (Continued)<span class="id">dawnsglow.qualcolor</span></span>
+        </div>
+      </div>
+      <h2>진조이니라 <span class="count">6개</span></h2>
+      <p class="gdesc">이 팩의 자작 모드</p>
+      <div class="parts">
+        <div class="part is-ours">
+          <span class="ord">64</span>
+          <span class="nm">진조이니라!<span class="id">codex.rimworldmodpack.crimsonconcord</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">66</span>
+          <span class="nm">진조이니라! - 조류도감<span class="id">codex.rimworldmodpack.crimsonconcord.birding</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">67</span>
+          <span class="nm">진조이니라! - 하피<span class="id">codex.rimworldmodpack.crimsonconcord.harpy</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">68</span>
+          <span class="nm">진조이니라! - 선지국<span class="id">codex.rimworldmodpack.crimsonconcord.food</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">69</span>
+          <span class="nm">진조이니라! - 진홍 협화회 이념<span class="id">codex.rimworldmodpack.crimsonconcord.ideology</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">71</span>
+          <span class="nm">진조이니라! - 시작 시나리오<span class="id">codex.rimworldmodpack.crimsonconcord.scenarios</span></span>
+        </div>
+      </div>
+      <h2>방문객 경제 <span class="count">4개</span></h2>
+      <p class="gdesc">Hospitality, 계산대, 온천</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">49</span>
+          <span class="nm">Better Traders Guild<span class="id">shunter.bettertradersguild</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">112</span>
+          <span class="nm">Max Buy, Max Sell<span class="id">leoltron.maxbuymaxsell</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">122</span>
+          <span class="nm">Hospitality (Continued)<span class="id">orion.hospitality</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">125</span>
+          <span class="nm">Cash Register (Continued)<span class="id">orion.cashregister</span></span>
+        </div>
+      </div>
+      <h2>위생 <span class="count">3개</span></h2>
+      <p class="gdesc">아래 variants 로 갈래를 고른다</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">62</span>
+          <span class="nm">Dubs Bad Hygiene Lite<span class="id">dubwise.dubsbadhygiene.lite</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">63</span>
+          <span class="nm">DBH Lite - Modpack Compatibility<span class="id">codex.rimworldmodpack.dbhlite.compat</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">124</span>
+          <span class="nm">Hospitality: Spa - DBH Lite 호환판<span class="id">codex.hospitalityspa.litecompat</span></span>
+        </div>
+      </div>
+      <h2>RimTalk (AI 대화) <span class="count">4개</span></h2>
+      <p class="gdesc">API 키가 있어야 쓸모가 있다</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">33</span>
+          <span class="nm">RimTalk<span class="id">cj.rimtalk</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">34</span>
+          <span class="nm">RimTalk: Persona Director<span class="id">rp.rimtalk.personadirector</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">36</span>
+          <span class="nm">RimTalk - Expand Memory<span class="id">cj.rimtalk.expandmemory</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">37</span>
+          <span class="nm">RimTalk Event+<span class="id">saltgin.rimtalkeventmemory</span></span>
+        </div>
+      </div>
+      <h2>편의성 <span class="count">18개</span></h2>
+      
+      <div class="parts">
+        <div class="part">
+          <span class="ord">43</span>
+          <span class="nm">[SYR] Coffee and Tea (Continued)<span class="id">mlie.syrcoffeeandtea</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">44</span>
+          <span class="nm">RimFridge: Now with Shelves!<span class="id">rimfridge.kv.rw</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">92</span>
+          <span class="nm">Common Sense<span class="id">avilmask.commonsense</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">93</span>
+          <span class="nm">Replace Stuff - Continued<span class="id">memegoddess.replacestuff</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">94</span>
+          <span class="nm">Auto-Cut Blight - 1.6<span class="id">defi.autocutblight</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">95</span>
+          <span class="nm">Mad Skills<span class="id">ratys.madskills</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">96</span>
+          <span class="nm">Pawn Target Fix<span class="id">fed1splay.pawntargetfix</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">97</span>
+          <span class="nm">Smarter Construction<span class="id">dhultgren.smarterconstruction</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">98</span>
+          <span class="nm">Treat Dying First<span class="id">dogard.treatdyingfirst</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">99</span>
+          <span class="nm">Pick Up And Haul<span class="id">mehni.pickupandhaul</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">101</span>
+          <span class="nm">Better Workbench Management<span class="id">falconne.bwm</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">102</span>
+          <span class="nm">Dubs Mint Menus<span class="id">dubwise.dubsmintmenus</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">110</span>
+          <span class="nm">What's That Mod<span class="id">co.uk.epicguru.whatsthatmod</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">111</span>
+          <span class="nm">Show Buildable Material Count<span class="id">bp.showbuildablematerialcount</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">115</span>
+          <span class="nm">Medical Tab - Continued<span class="id">memegoddess.medicaltab</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">119</span>
+          <span class="nm">DragSelect<span class="id">telardo.dragselect</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">120</span>
+          <span class="nm">[FSF] Filth Vanishes With Rain And Time<span class="id">frozensnowfox.filthvanisheswithrainandtime</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">121</span>
+          <span class="nm">No Burn Metal<span class="id">unon.noburnmetal</span></span>
+        </div>
+      </div>
+      <h2>성능 <span class="count">5개</span></h2>
+      
+      <div class="parts">
+        <div class="part">
+          <span class="ord">25</span>
+          <span class="nm">Map Preview<span class="id">m00nl1ght.mappreview</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">100</span>
+          <span class="nm">RimHUD<span class="id">jaxe.rimhud</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">103</span>
+          <span class="nm">Camera+<span class="id">brrainz.cameraplus</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">104</span>
+          <span class="nm">Smart Speed<span class="id">sarg.smartspeed</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">105</span>
+          <span class="nm">Performance Optimizer<span class="id">taranchuk.performanceoptimizer</span></span>
+        </div>
+      </div>
+      <h2>한국어 보정 <span class="count">5개</span></h2>
+      <p class="gdesc">우리가 채운 번역. 한국어로 할 거면 켠다</p>
+      <div class="parts">
+        <div class="part is-ours">
+          <span class="ord">21</span>
+          <span class="nm">Birds Beyond + Hunt for Me 한국어<span class="id">codex.rimworldmodpack.birds.huntforme.korean</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">35</span>
+          <span class="nm">RimTalk 한국어 보정 패치<span class="id">codex.rimtalk.korean.patch</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">56</span>
+          <span class="nm">모드팩 시작 상황 한국어 패치<span class="id">codex.rimworldmodpack.scenarios.korean</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">65</span>
+          <span class="nm">Crimson Concord - Korean Supplement<span class="id">codex.rimworldmodpack.crimsonconcord.koreansupplement</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">127</span>
+          <span class="nm">Hospitality Economy Korean<span class="id">codex.rimworldmodpack.hospitalityeconomy.korean</span></span>
+        </div>
+      </div>
+      <h2>조류 <span class="count">10개</span></h2>
+      <p class="gdesc">조류도감이 이걸 읽는다</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">7</span>
+          <span class="nm">Flight Framework<span class="id">drifter.flightframework</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">8</span>
+          <span class="nm">Avian Genes<span class="id">drifter.aviangenes</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">9</span>
+          <span class="nm">Egg Incubator<span class="id">mlie.eggincubator</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">14</span>
+          <span class="nm">Birds Beyond (Continued)<span class="id">mlie.birdsbeyond</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">15</span>
+          <span class="nm">More Birds - Doves<span class="id">11bullets.dovesandpigeons</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">16</span>
+          <span class="nm">More Birds - Songbirds<span class="id">11bullets.songbirds</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">17</span>
+          <span class="nm">More Birds - Conures<span class="id">11bullets.conures</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">18</span>
+          <span class="nm">More Birds - Shorebirds<span class="id">11bullets.shorebirds</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">19</span>
+          <span class="nm">More Birds - Extinct &amp; Engineered<span class="id">11bullets.extinctengineered</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">20</span>
+          <span class="nm">Hunt for Me<span class="id">arandomkiwi.huntforme</span></span>
+        </div>
+      </div>
+      <h2>인간관계 <span class="count">5개</span></h2>
+      
+      <div class="parts">
+        <div class="part">
+          <span class="ord">28</span>
+          <span class="nm">Way Better Romance<span class="id">divinederivative.romance</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">29</span>
+          <span class="nm">No Random Relations<span class="id">dvs.norandomrelations</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">30</span>
+          <span class="nm">All Memories Fade<span class="id">mlie.allmemoriesfade</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">39</span>
+          <span class="nm">Vanilla Social Interactions Expanded<span class="id">vanillaexpanded.vanillasocialinteractionsexpanded</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">45</span>
+          <span class="nm">Polyamory Beds (Vanilla Edition)<span class="id">meltup.polyamorybeds.vanilla</span></span>
+        </div>
+      </div>
+      <h2>음악·환경음 <span class="count">3개</span></h2>
+      
+      <div class="parts">
+        <div class="part">
+          <span class="ord">22</span>
+          <span class="nm">Ambient Rim<span class="id">swablu.ambience</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">23</span>
+          <span class="nm">P-Music<span class="id">peppsen.pmusic</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">24</span>
+          <span class="nm">J-Music (Original Music Pack)<span class="id">j.music</span></span>
+        </div>
+      </div>
+      <h2>대형 확장 <span class="count">7개</span></h2>
+      <p class="gdesc">VE 계열, 오디세이 보강</p>
+      <div class="parts">
+        <div class="part">
+          <span class="ord">26</span>
+          <span class="nm">Faction Control (1.4-1.6)<span class="id">thereallemon.factioncontrol</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">40</span>
+          <span class="nm">Vanilla Ideology Expanded - Memes and Structures<span class="id">vanillaexpanded.vmemese</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">41</span>
+          <span class="nm">Vanilla Ideology Expanded - Relics and Artifacts<span class="id">vanillaexpanded.ideo.relicsandartifacts</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">46</span>
+          <span class="nm">Ancot Library<span class="id">ancot.ancotlibrary</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">47</span>
+          <span class="nm">Vanilla Gravship Expanded - Chapter 1<span class="id">vanillaexpanded.gravship</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">48</span>
+          <span class="nm">Complementary Odyssey<span class="id">mrhydralisk.complementaryodyssey</span></span>
+        </div>
+        <div class="part">
+          <span class="ord">61</span>
+          <span class="nm">Dynamic Diplomacy - Continued<span class="id">nilchei.dynamicdiplomacycontinued</span></span>
+        </div>
+      </div>
+      <h2>호환 패치 <span class="count">6개</span></h2>
+      <p class="gdesc">우리가 만든 모드 간 호환·수정 패치</p>
+      <div class="parts">
+        <div class="part is-ours">
+          <span class="ord">32</span>
+          <span class="nm">RimTalk - VEF/VGE Null Guard<span class="id">codex.rimtalk.vef.vge.nullguard</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">51</span>
+          <span class="nm">Wolfein 1.6 Sound Hotfix<span class="id">codex.rimworldmodpack.wolfein16hotfix</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">118</span>
+          <span class="nm">Quality Colors - Options Window Fix<span class="id">codex.rimworldmodpack.qualitycolors.optionsfix</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">123</span>
+          <span class="nm">Milira - Hospitality 호환 패치<span class="id">codex.rimworldmodpack.milira.hospitality</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">126</span>
+          <span class="nm">Cash Register Gravship Compat (test)<span class="id">codex.rimworldmodpack.cashregister.gravshipcompat</span></span>
+        </div>
+        <div class="part is-ours">
+          <span class="ord">128</span>
+          <span class="nm">Complementary Odyssey - Lighting Overlay Fix<span class="id">codex.rimworldmodpack.complementaryodyssey.lightingfix</span></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="colophon pad">
+    <p>모드 본체는 각자 Steam 워크샵에서 받는다. 이 사이트가 옮기는 것은 <strong>우리가 만든 것과 목록·순서</strong>뿐이다. 워크샵 모드 다수가 재배포를 금지한다.</p>
+    <p>무결성 색인 <code>local-mods.index.json</code> 은 <strong>손상 검출용</strong>이다. 서명이 아니다 — 색인도 같은 배포처에서 온다.</p>
+    <p>매니페스트 생성 시각 <code>2026-09-01 17:38</code></p>
+  </footer>
+</div>
+</body>
+</html>

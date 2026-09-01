@@ -1,0 +1,503 @@
+/* 진조이니라! — rim.issssm.com
+   조립 설명서 문법. 키라인, 번호 매긴 단계, 1:1 부품 호출 상자.
+   손으로 쓴다. 빌드 단계는 HTML 만 만든다. */
+
+:root {
+  --paper:      #ffffff;
+  --paper-2:    #f4f4f2;
+  --paper-3:    #e9e8e4;
+  --ink:        #14110f;
+  --ink-2:      #45403c;
+  --ink-3:      #79736d;
+  --rule:       #14110f;
+  --rule-soft:  #c9c5bf;
+  --crimson:    #c8102e;
+  --crimson-2:  #9c0c23;
+  --caution:    #f5c518;
+  --info:       #2f6fa8;
+  --ok:         #2c7a4b;
+
+  --gutter:     5.5rem;
+  --sheet:      68rem;
+
+  --step-num:   clamp(2.6rem, 6vw, 4.2rem);
+
+  --f-sans: "IBM Plex Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", "D2Coding", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:     #14110f;
+    --paper-2:   #1c1917;
+    --paper-3:   #262220;
+    --ink:       #ece8e3;
+    --ink-2:     #b9b2ab;
+    --ink-3:     #8b847d;
+    --rule:      #ece8e3;
+    --rule-soft: #3b3633;
+    --crimson:   #ff4d63;
+    --crimson-2: #ff7a8b;
+    --caution:   #f5c518;
+    --info:      #7db6e8;
+    --ok:        #5fbf85;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper:     #14110f;
+  --paper-2:   #1c1917;
+  --paper-3:   #262220;
+  --ink:       #ece8e3;
+  --ink-2:     #b9b2ab;
+  --ink-3:     #8b847d;
+  --rule:      #ece8e3;
+  --rule-soft: #3b3633;
+  --crimson:   #ff4d63;
+  --crimson-2: #ff7a8b;
+  --caution:   #f5c518;
+  --info:      #7db6e8;
+  --ok:        #5fbf85;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+a { color: var(--crimson); text-underline-offset: 0.2em; }
+a:focus-visible,
+button:focus-visible { outline: 3px solid var(--crimson); outline-offset: 2px; }
+
+/* ── 종이 ───────────────────────────────────────────────── */
+
+.sheet {
+  max-width: var(--sheet);
+  margin: 0 auto;
+  background: var(--paper);
+  border-left: 1px solid var(--rule-soft);
+  border-right: 1px solid var(--rule-soft);
+  min-height: 100vh;
+}
+
+.pad { padding: 0 clamp(1.25rem, 4vw, 3.5rem); }
+
+/* ── 머리 ───────────────────────────────────────────────── */
+
+.masthead {
+  border-bottom: 3px solid var(--rule);
+  padding-top: 2.25rem;
+  padding-bottom: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+}
+
+.masthead .wordmark {
+  font-size: clamp(1.6rem, 4.4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.15;
+}
+.masthead .wordmark .bang { color: var(--crimson); }
+
+.masthead .meta {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+nav.tabs a {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--ink-2);
+  padding: 0.85rem 1.1rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+nav.tabs a:hover { color: var(--ink); background: var(--paper-2); }
+nav.tabs a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--crimson);
+  font-weight: 600;
+}
+
+/* ── 경고 띠 ────────────────────────────────────────────── */
+
+.hazard {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: var(--paper-2);
+  margin-top: 2rem;
+}
+.hazard::before {
+  content: "";
+  display: block;
+  height: 10px;
+  background: repeating-linear-gradient(
+    -45deg, var(--caution) 0 12px, var(--ink) 12px 24px);
+}
+.hazard .body { padding: 1.1rem clamp(1.25rem, 4vw, 3.5rem) 1.25rem; }
+.hazard h2 {
+  font-size: 0.8rem;
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+  color: var(--ink);
+}
+.hazard ul { margin: 0; padding-left: 1.1rem; }
+.hazard li { margin: 0.2rem 0; }
+.hazard strong { color: var(--crimson); }
+
+/* ── 단계 ───────────────────────────────────────────────── */
+
+.step {
+  display: grid;
+  grid-template-columns: var(--gutter) 1fr;
+  gap: 0 1.5rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.step:last-child { border-bottom: 0; }
+
+.step .n {
+  font-family: var(--f-mono);
+  font-size: var(--step-num);
+  font-weight: 700;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--rule);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+.step.is-key .n { -webkit-text-stroke-color: var(--crimson); }
+
+.step h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.step p { margin: 0 0 0.75rem; color: var(--ink-2); }
+.step p:last-child { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .step { grid-template-columns: 1fr; gap: 0.4rem; }
+  .step .n { font-size: 2.2rem; }
+}
+
+/* 명령 상자 */
+pre.cmd {
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule-soft);
+  border-left: 4px solid var(--ink);
+  padding: 0.75rem 0.9rem;
+  margin: 0.6rem 0 0.9rem;
+  line-height: 1.6;
+  /* 가로 스크롤 대신 줄바꿈. 읽는 사람이 이걸 복사해서 붙여 넣는다 —
+     잘린 줄을 스크롤해야 하는 것을 못 알아채면 명령을 반만 복사한다. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* 곁줄 — 막혔을 때 */
+.stuck {
+  border: 1px solid var(--rule-soft);
+  border-left: 4px solid var(--caution);
+  background: var(--paper-2);
+  padding: 0.8rem 1rem;
+  margin: 0.9rem 0 0;
+  font-size: 0.92rem;
+}
+.stuck b {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  display: block;
+  color: var(--ink-3);
+  margin-bottom: 0.25rem;
+}
+
+/* ── 세트 상자 (프리셋) ─────────────────────────────────── */
+
+.sets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+  padding: 2rem 0 2.5rem;
+}
+
+.set {
+  border: 2px solid var(--rule);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.set.is-recommended { border-color: var(--crimson); }
+
+.set .corner {
+  position: absolute;
+  top: -2px; right: -2px;
+  background: var(--crimson);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.55rem;
+}
+
+.set .head {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 1.1rem 1.1rem 0.85rem;
+}
+.set .setno {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.set h3 { margin: 0.15rem 0 0.1rem; font-size: 1.3rem; letter-spacing: -0.01em; }
+.set .tagline { color: var(--ink-2); font-size: 0.92rem; }
+
+.set .stats {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+.set .stats b { display: block; color: var(--ink); font-size: 1.15rem; font-weight: 700; }
+
+.pips { letter-spacing: 0.12em; color: var(--crimson); }
+.pips .off { color: var(--rule-soft); }
+
+.set .why { padding: 0.9rem 1.1rem; margin: 0; flex: 1; }
+.set .why li { margin: 0.3rem 0; font-size: 0.92rem; color: var(--ink-2); }
+
+.set .cost {
+  padding: 0.75rem 1.1rem;
+  border-top: 1px dashed var(--rule-soft);
+  font-size: 0.86rem;
+  color: var(--ink-3);
+}
+
+.set .unverified {
+  background: var(--caution);
+  color: #14110f;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ── 세트로 정해지지 않는 선택 ──────────────────────────── */
+
+/* 왼쪽 강조 레일을 뺐다. 바로 위 .sectionhead 가 이미 2px 괘선과
+   모노 눈썹으로 절을 갈라 주고 있어서 레일은 장식일 뿐이었다. */
+.optional { margin: 0 0 1rem; }
+.optional .q2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0.75rem 0 0.4rem;
+}
+.optional p { max-width: 46rem; }
+.optional td strong { color: var(--crimson); }
+
+/* ── 부품 목록 ──────────────────────────────────────────── */
+
+.bin { padding: 1.5rem 0 0; }
+.bin h2 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.15rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.bin h2 .count {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.bin .gdesc { color: var(--ink-3); font-size: 0.88rem; margin: 0 0 0.75rem; }
+
+/* 칸 사이를 gap 으로 벌리고 뒷배경을 선 색으로 두면 마지막 줄의
+   빈 칸이 회색 덩어리로 남는다. 칸마다 선을 그린다. */
+.parts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  background: var(--paper);
+  border-top: 1px solid var(--rule-soft);
+  border-left: 1px solid var(--rule-soft);
+}
+
+.part {
+  background: var(--paper);
+  border-right: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 0.6rem 0.7rem;
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  gap: 0.55rem;
+  align-items: start;
+}
+.part .ord {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  padding-top: 0.12rem;
+}
+.part .nm { font-size: 0.9rem; line-height: 1.4; }
+.part .id {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--ink-3);
+  display: block;
+  margin-top: 0.1rem;
+}
+.part.is-ours { border-left: 3px solid var(--crimson); }
+.part.is-ours .nm { font-weight: 600; }
+
+.legend {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 0.75rem 0 0;
+}
+.legend .swatch {
+  display: inline-block;
+  width: 0.7rem; height: 0.7rem;
+  border-left: 3px solid var(--crimson);
+  margin-right: 0.35rem;
+  vertical-align: -1px;
+}
+
+/* ── 표 ─────────────────────────────────────────────────── */
+
+.tablewrap { overflow-x: auto; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+}
+th {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  border-bottom: 2px solid var(--rule);
+  white-space: nowrap;
+}
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+
+/* ── 강조 링크 ──────────────────────────────────────────── */
+
+.gonext {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 2px solid var(--crimson);
+  color: var(--crimson);
+  background: transparent;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.02rem;
+}
+.gonext:hover { background: var(--crimson); color: #fff; }
+
+.dlmeta {
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin: 0.5rem 0 0.9rem;
+  word-break: break-all;
+}
+.dlmeta strong { color: var(--ink-2); }
+.gonext .arrow { font-family: var(--f-mono); }
+
+/* ── 꼬리 ───────────────────────────────────────────────── */
+
+footer.colophon {
+  border-top: 3px solid var(--rule);
+  margin-top: 3rem;
+  padding: 1.5rem 0 3rem;
+  font-size: 0.84rem;
+  color: var(--ink-3);
+}
+footer.colophon p { margin: 0.3rem 0; }
+footer.colophon code { font-family: var(--f-mono); font-size: 0.8rem; }
+
+.lede {
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 44rem;
+  margin: 1.75rem 0 0;
+}
+.lede strong { color: var(--ink); }
+
+h1.q {
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 2.25rem 0 0;
+  max-width: 22ch;
+}
+h1.q em { font-style: normal; color: var(--crimson); }
+
+.sectionhead {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  border-top: 2px solid var(--rule);
+  padding-top: 0.6rem;
+  margin-top: 2.75rem;
+}
+
+@media print {
+  nav.tabs, .gonext { display: none; }
+  .sheet { border: 0; }
+}
