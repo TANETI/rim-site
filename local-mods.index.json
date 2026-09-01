@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "generated":  "2026-09-01T22:39:07",
+    "generated":  "2026-09-01T23:35:01",
     "note":  "손상 검출용이다. 진위 검증이 아니다 — 색인도 같은 배포처에서 온다.",
     "mods":  {
                  "BirdsHuntForMeKorean":  {
@@ -386,12 +386,12 @@
                                                            }
                                              },
                  "RimTalkKoreanPatch":  {
-                                            "fingerprint":  "50452DBD5F6575D029FBA8C9171A3EC34B37AFDAFCBF7DCEF54EB1802151B96F",
+                                            "fingerprint":  "2E63F63A16970EFF5E04391A609BE861789A5CE1529AA2FA7A959DA6D94C7056",
                                             "fileCount":  6,
-                                            "bytes":  56144,
+                                            "bytes":  56656,
                                             "files":  {
                                                           "about\\about.xml":  "5D77E2611ABB33B4E51AB3C65BE432F0860036EE0BCAC6508CDA9E5504D1290B",
-                                                          "assemblies\\rimtalkkoreanpatch.dll":  "09A28B4F3880B2DB718756FA63E7320A179D90AC2BC39F88FFD0100F2D0270A6",
+                                                          "assemblies\\rimtalkkoreanpatch.dll":  "35D3452C0C83D87D3F0A9794BCBA1D7AD8AF9AE103F6C2CB11CAA7B37C6E3656",
                                                           "languages\\korean\\definjected\\mainbuttondef\\rimtalk_memory.xml":  "02F1D1667CBA2EB1138A4E62A0344726BB6517A3A642B9F20C578AFC0316FF61",
                                                           "languages\\korean\\keyed\\memorypatch_missing.xml":  "E5A86DD7380B139ECBFB3A8E8CB94F7891DB48BD23522867584CD249CB548620",
                                                           "languages\\korean\\keyed\\rimtalk_missing.xml":  "C02F2643C8F2EC6750391FA95C115DE46DB7D813C2A71D097FADD2A3DA431CFD",
