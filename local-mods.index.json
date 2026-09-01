@@ -1,6 +1,6 @@
 {
     "schema":  1,
-    "generated":  "2026-09-01T20:33:26",
+    "generated":  "2026-09-01T22:39:07",
     "note":  "손상 검출용이다. 진위 검증이 아니다 — 색인도 같은 배포처에서 온다.",
     "mods":  {
                  "BirdsHuntForMeKorean":  {
@@ -152,13 +152,13 @@
                                                       }
                                         },
                  "CrimsonConcordHarpy":  {
-                                             "fingerprint":  "A0929F7FA51689B2E7FC5BA26828A5182266154376CE816CF7FBA2A99BE894B8",
+                                             "fingerprint":  "DD81514BC5FFC8BAC9596BF35181CCEB049C0C15290775130AACD16F84E55918",
                                              "fileCount":  25,
-                                             "bytes":  408083,
+                                             "bytes":  408948,
                                              "files":  {
                                                            "about\\about.xml":  "CA7688816D22608A221CA3FAEBD3B946E0E049C34113EEFAAC3B5A3740BCC4F4",
                                                            "assemblies\\crimsonconcordharpy.dll":  "B6AE9357A4715A4466A8A2D2E99E0602E3E3CEF3B42C9768BA6D0AD0C6732F3A",
-                                                           "defs\\crimsonconcordharpy.xml":  "E4C0D40C59C2ED309D60A9C84DC12DB89F4CD9AD2DAB6AD34AB6B3861A1A28CA",
+                                                           "defs\\crimsonconcordharpy.xml":  "3AE5C411F2913C7F05635C15E9D393AC89FECED723F570EB20C50389A83A6C43",
                                                            "defs\\crimsonconcordharpylife.xml":  "BD81BDA865A1C627564E05AEBB557A2E9D3D3D47026193E5FF7ACAEEBAA02C30",
                                                            "languages\\english\\keyed\\crimsonconcordharpy.xml":  "FD9A63FC17BDAFF6599B74853749B79CA6DB64A2147EB21F072E3A9FD53DA804",
                                                            "languages\\korean\\definjected\\hediffdef\\crimsonconcordharpy.xml":  "91FE0597CB94A33C248BA9408BD9518456B473839FEEC3FB93D79499054F6E5F",
