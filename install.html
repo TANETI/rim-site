@@ -39,7 +39,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <div class="sheet">
   <header class="masthead pad">
     <p class="wordmark">진조이니라<span class="bang">!</span></p>
-    <p class="meta">RimWorld 1.6 · 팩 2026.09.01</p>
+    <p class="meta">RimWorld 1.6 · 팩 2026.09.03</p>
   </header>
   <nav class="tabs pad" aria-label="주요">
       <a href="index.html">시작</a>
@@ -90,11 +90,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <p class="n">04</p>
       <div>
         <h2>설치기를 받아 연다</h2>
-        <p><a class="gonext" href="download/crimson-concord-installer.zip" download>설치기 내려받기 <span class="arrow">↓</span></a></p>
-        <p class="dlmeta">3.5 MB · SHA-256 <code>7953124E76A738C9AB4E96DDEEA62B811EB4341A918F3D5F36E4C3D1FD3AE3B9</code><br>
+        <p><a class="gonext" href="index.html#sets">세트를 골라 설치기 받기 <span class="arrow">→</span></a></p>
+        <p class="dlmeta">3.6 MB · SHA-256 <code>BA5F1442680DDB7B7E5A6AB0322EA3FBD8B169E9120F213532872B323B62563A</code><br>
         안에 설치기와 <strong>우리가 만든 모드 19개</strong>가 들어 있다. 워크샵 모드는 들어 있지 않다.</p>
         <p>아무 데나 풀면 된다. PowerShell 5.1 로 돌고 윈도우에 기본으로 들어 있어 따로 깔 것이 없다.
-        창으로 쓰려면 <code>Modpack-UI.ps1</code>, 명령줄이 편하면 아래를 쓴다.</p>
+        <code>Install.cmd</code>를 실행하면 사이트에서 고른 세트와 성인 요소가 설정된 창이 열린다.
+        게임 경로를 확인하거나 ‘찾아보기’로 바꾼다. 명령줄 미리보기는 아래와 같다.</p>
         <pre class="cmd">powershell -ExecutionPolicy Bypass -File .\installer\Install-Modpack.ps1 -WhatIf</pre>
         <p><code>-WhatIf</code> 는 무엇을 할지 보여주기만 하고 아무것도 바꾸지 않는다. 먼저 이걸로 본다.</p>
         <div class="stuck"><b>막혔다면</b>
@@ -106,12 +107,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <section class="step is-key">
       <p class="n">05</p>
       <div>
-        <h2>세트를 고르고 배열을 만든다</h2>
+        <h2>자작 모드와 배열을 함께 적용한다</h2>
         <p><code>-Apply</code> 를 붙이면 실제로 <code>ModsConfig.xml</code> 을 쓴다.
         기존 파일은 <strong>날짜가 붙은 이름으로 반드시 백업</strong>한 뒤에 덮는다.</p>
-        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply -Hygiene lite -Adult off</pre>
-        <p><code>-Hygiene</code> 는 입문 세트가 <code>none</code>, 기준 세트가 <code>lite</code> 다.
-        <code>-Adult</code> 는 <code>off</code>(기본값) 또는 <code>on</code>. 세트와 무관하게 고른다.</p>
+        <p>창에서 <strong>적용</strong>을 누르면 자작 모드 20개를 지정한 게임 폴더의 <code>Mods</code>에 설치하고,
+        선택한 모드만 활성화한다. 배열은 사용자 게임 설정 폴더에 적용된다. ZIP에도 같은 <code>config/ModsConfig.xml</code>이 들어 있다.</p>
+        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply</pre>
+        <p>위 명령도 ZIP에 저장된 선택을 사용한다. 바꾸려면 <code>-Preset plain|starter|standard</code>,
+        <code>-Adult off|on</code>, 경로는 <code>-RimWorldPath &quot;D:\SteamLibrary\steamapps\common\RimWorld&quot;</code>로 지정한다.</p>
         <p>아무것도 안 붙이고 <code>-Interactive</code> 만 주면 설치기가 하나씩 물어본다.</p>
       </div>
     </section>
@@ -147,7 +150,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <h2>RimSort 를 받는다</h2>
         <p>배열을 눈으로 확인하고 고칠 때 쓴다. DDS 변환 도구(todds)가 그 안에 들어 있어
         따로 받을 것이 없다.</p>
-        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply -WithRimSort</pre>
+        <p>설치 창의 ‘RimSort도 설치’를 선택하거나 아래 명령으로 도구만 받는다. 기존 배열은 유지된다.</p>
+        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply -ToolsOnly -WithRimSort</pre>
       </div>
     </section>
 
@@ -158,7 +162,9 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <p>부팅이 눈에 띄게 빨라진다. 이 팩 실측으로 데스크탑 기준 약 90초까지 내려갔다.
         대신 <strong>오래 걸리고</strong>(6코어 노트북에서 약 54분) 디스크가 약 6GB 늘어난다.
         PNG 는 지우지 않으므로 <code>todds --clean</code> 으로 언제든 되돌린다.</p>
-        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply -WithRimSort -WithDds</pre>
+        <p>RimSort의 텍스처 최적화 기능 또는 설치 창의 ‘DDS 변환까지’를 사용한다.
+        먼저 게임을 종료하고 Steam 다운로드가 끝났는지 확인한다. 변환은 현재 활성 배열을 기준으로 한다.</p>
+        <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply -ToolsOnly -WithRimSort -WithDds</pre>
         <div class="stuck"><b>알아 둘 것</b>
         가로·세로가 4의 배수가 아닌 이미지는 DDS 가 만들어져도 게임이 로드를 거부한다.
         설치기가 변환 뒤 자동으로 걸러 낸다.</div>
@@ -183,7 +189,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <p>워크샵 모드 108개는 Steam 이 알아서 갱신한다.
         챙겨야 하는 것은 우리가 만든 19개뿐이다.</p>
         <pre class="cmd">.\installer\Install-Modpack.ps1 -Apply</pre>
-        <p>설치와 갱신이 같은 명령이다. 처음이면 깔고, 이미 있으면 바뀐 것만 덮는다.</p>
+        <p>사이트에서 같은 세트의 최신 ZIP을 다시 받고 실행한다. 예전에 받은 ZIP을 재실행하는 것만으로 최신 파일을 내려받지는 않는다.
+        창의 ‘자작 모드 설치’만 누르면 현재 배열을 유지하고 모드 파일만 갱신한다.</p>
         <p>덮어쓰기 전에 <strong>기존 설치본을 통째로 복사해 두고</strong>, 받은 것이 온전한지
         무결성 색인과 대조한다. 한 파일이라도 어긋나면 그 모드는 건드리지 않는다.</p>
       </div>
@@ -192,7 +199,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <footer class="colophon pad">
     <p>모드 본체는 각자 Steam 워크샵에서 받는다. 이 사이트가 옮기는 것은 <strong>우리가 만든 것과 목록·순서</strong>뿐이다. 워크샵 모드 다수가 재배포를 금지한다.</p>
     <p>무결성 색인 <code>local-mods.index.json</code> 은 <strong>손상 검출용</strong>이다. 서명이 아니다 — 색인도 같은 배포처에서 온다.</p>
-    <p>매니페스트 생성 시각 <code>2026-09-01 17:38</code></p>
+    <p>매니페스트 생성 시각 <code>2026-09-03 13:40</code></p>
   </footer>
 </div>
 </body>
